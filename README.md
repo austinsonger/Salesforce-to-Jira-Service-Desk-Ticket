@@ -7,7 +7,7 @@
 - Issue Type
 - Summary
 - Description
-- Customer ID (CID) - customfield_12128
+- Customer ID (CID) - customfield_#####
   
 
 ## Calling the Method
