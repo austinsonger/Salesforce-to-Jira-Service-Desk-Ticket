@@ -7,12 +7,12 @@
 
 **2. Data Mapping and Payload Preparation:**
 
-- **Identify relevant fields:** Determine the fields you want to copy from Salesforce to Jira Service Desk. This typically includes customer information, issue details, and relevant custom fields.
+- **Identify relevant fields:** Determine the fields need to copy from Salesforce to Jira Service Desk. This typically includes customer information, issue details, and relevant custom fields.
 - **Build the payload:** Structure the data in the format expected by the Jira Service Desk Create Issue endpoint. Refer to the API documentation for specific requirements and field names.
 
 **3. API Call and Error Handling:**
 
-- **Make the API call:** Use a chosen library to send a POST request to the Jira Service Desk Create Issue endpoint with the prepared payload.
+- **Make the API call:** Use library to send a POST request to the Jira Service Desk Create Issue endpoint with the prepared payload.
 - **Parse the response:** Check the response for success or errors. Handle potential errors gracefully and retry or log them appropriately.
 
 **4. Additional Considerations:**
