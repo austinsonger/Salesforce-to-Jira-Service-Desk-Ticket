@@ -1,6 +1,58 @@
 # Salesforce-to-Jira-Service-Desk-Ticket
 
-**Setup and Authentication:**
+## Calling the Method
+
+```apex
+JiraIntegrationService.createJiraTicket('Issue Summary', 'Issue description here', 'PROJECTKEY', 'Bug');
+```
+
+### From Another Apex Class
+
+If you have another Apex class where you need to create a Jira ticket, you can directly call the `createJiraTicket` method. For instance:
+
+apex
+
+```apex
+public class SomeOtherClass {
+    public void someMethod() {
+        JiraIntegrationService.createJiraTicket('Issue Summary', 'Issue description here', 'PROJECTKEY', 'Bug');
+    }
+}
+```
+
+### From an Apex Trigger
+
+If you want to create a Jira ticket in response to a record being created or updated in Salesforce, you might use an Apex trigger. For example:
+
+apex
+
+```apex
+trigger CreateJiraTicketOnCase on Case (after insert) {
+    for (Case c : Trigger.new) {
+        // Assuming you want to create a ticket for each new Case
+        JiraIntegrationService.createJiraTicket(c.Subject, c.Description, 'PROJECTKEY', 'Bug');
+    }
+}
+```
+
+
+### From a Visualforce Page
+
+If you are using a Visualforce page and want to trigger this action from a user interface element like a button, you would have a controller or extension that calls this method. For example:
+
+
+```apex
+public class MyVisualforceController {
+    public void createTicket() {
+        JiraIntegrationService.createJiraTicket('Issue Summary', 'Issue description here', 'PROJECTKEY', 'Bug');
+    }
+}
+```
+
+---------
+
+
+## **Setup and Authentication:**
 
 - **Obtain API credentials:** I need API credentials for both Salesforce and Jira Service Desk. For Salesforce, you need a user with "API Access" enabled and create a Connected App. For Jira Service Desk, generate API tokens from  project settings.
 - **Install libraries:** In the Salesforce development environment, install libraries like `restforce` for interacting with the Salesforce API and `requests` or another HTTP library for making API calls to Jira Service Desk.
